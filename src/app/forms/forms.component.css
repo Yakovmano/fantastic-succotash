@@ -1,0 +1,9 @@
+.category-form{
+    padding: 5px;
+    margin: 5px;
+}
+.add-words{
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,22 @@
+.categories-table{
+    padding: 5px;
+    margin: 5px;
+}
+.categories-table > h1{
+    text-align: center;
+}
+.mat-column-actions *{
+    cursor: pointer;
+
+}
+.new-category{
+    margin: 5px auto;
+    padding: 5px;
+    text-align: center;
+}
+th{
+    border: 1px solid #aaa;
+}
+td{
+    border: 1px solid #aaa;
+}

@@ -1,0 +1,15 @@
+
+<div class="game">
+    <br/>
+    <h1>Let's play</h1>
+    <br/>
+    <h2>Pick category</h2>
+    <select (change)="onSelectCategory($event)">
+        @for(entry of categoryService.categories; track entry[0]) {
+            <option [value]="entry[0]">
+                {{entry[1].name}}
+            </option>
+        }
+    </select>
+    <button (click)="moveToTranslateGame()">Play</button>
+</div>

@@ -1,0 +1,44 @@
+.translate {
+    display: grid;
+    place-items: center;
+    row-gap:1rem;
+    width: fit-content;
+    margin-inline: auto;
+}
+.translations {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.75rem;
+}
+
+.word-row label {
+    min-width: 120px;
+}
+.word-row input {
+}
+
+.word-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.translate button {
+    margin-top: .5rem;
+    padding: .75rem;
+    width:100%;
+    font-size: 24px;
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+
+.icon-answer {
+    margin-inline: 1rem;
+}
+.green{ 
+    color:green;
+}
+.red{ 
+    color:red;
+}

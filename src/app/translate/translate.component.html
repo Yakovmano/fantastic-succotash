@@ -1,0 +1,41 @@
+<div class="translate">
+    @if(category) {
+        <h2>Translate - {{category.name}}</h2>
+        <div class="translations">
+            @for(word of category.words; track word.origin; let index = $index) {
+                <div class="word-row"> 
+                    <label>Origin: {{word.origin}}</label>
+                    <mat-form-field>
+                        <input matInput [formControl]="targetControls[index]">
+                        <mat-error>
+                          Only hebrew non empty target is allowed
+                        </mat-error>
+                    </mat-form-field>
+                    @if(correctAnswers && correctAnswers.length > index) {
+                        @if(correctAnswers[index]) {
+                            <mat-icon class="icon-answer green">done</mat-icon>
+                        }
+                        @else {
+                            <mat-icon class="icon-answer red">close</mat-icon>
+                        }
+                    }
+                    @if(correctAnswers && !isAllCorrect()) {
+                        <mat-icon class="icon-answer gray" (click)="showTranslation(index)">
+                            remove_red_eye
+                        </mat-icon>
+                    }
+                    
+                </div>
+            }
+        </div>
+        <button (click)="check()">Check</button>
+        @if(correctAnswers) {
+            @if(isAllCorrect()) {
+                <p>Well done, You finished!!</p>
+            }
+            @else {
+                <p>You translated {{correct()}} out of {{category.words.length}} words correctly, try again</p>
+            }
+        }
+    }
+</div>

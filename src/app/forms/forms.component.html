@@ -1,0 +1,54 @@
+<div class="category-form">
+  <mat-form-field>
+    <mat-label>Category Name</mat-label>
+    <input matInput [(ngModel)]="name">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Source Language</mat-label>
+    <input matInput value="English" readonly>
+
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Target Language </mat-label>
+    <input matInput value="Hebrew" readonly>
+  </mat-form-field>
+  <div class="add-words">
+    <span>Words</span>
+    <button mat-button (click)="onShowAddWord()">Add word</button>
+  </div>
+  <div *ngFor="let word of words; let i = index">
+    <mat-form-field>
+      <mat-label>Source Language</mat-label>
+      <input matInput [(ngModel)]="word.origin" (change)="hasOriginError=false">
+     
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Target Language </mat-label>
+      <input matInput [(ngModel)]="word.target">
+    </mat-form-field>
+    <button mat-icon-button (click)="deleteWord(i)">
+      <mat-icon>delete</mat-icon> 
+    </button>
+  </div>
+  <div *ngIf="showAddWord">
+    <mat-form-field>
+      <mat-label>Source Language</mat-label>
+      <input matInput [(ngModel)]="origin" [formControl]="originControl">
+        <mat-error>
+          Only english non empty origin is allowed
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Target Language </mat-label>
+      <input matInput [(ngModel)]="target" [formControl]="targetControl">
+      <mat-error>
+        Only hebrew non empty target is allowed
+      </mat-error>
+    </mat-form-field>
+    <br/><br/>
+    <button mat-button (click)="addWord()">Add</button>
+  </div>
+  <button mat-button (click)="save()">save</button>
+  <a routerLink="/">Home</a>
+</div>
